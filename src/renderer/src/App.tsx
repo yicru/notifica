@@ -1,5 +1,5 @@
-import Versions from './components/Versions'
 import electronLogo from './assets/electron.svg'
+import Versions from './components/Versions'
 
 function App(): JSX.Element {
   const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
@@ -22,12 +22,13 @@ function App(): JSX.Element {
           </a>
         </div>
         <div className="action">
+          {/* biome-ignore lint/a11y/useValidAnchor: ignore */}
           <a target="_blank" rel="noreferrer" onClick={ipcHandle}>
             Send IPC
           </a>
         </div>
       </div>
-      <Versions></Versions>
+      <Versions />
     </>
   )
 }
